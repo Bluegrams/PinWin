@@ -6,6 +6,7 @@ using PinWin.Properties;
 using Bluegrams.Windows.Tools;
 using Bluegrams.Application.WinForms;
 using Bluegrams.Application;
+using System.Collections.Generic;
 
 namespace PinWin
 {
@@ -71,27 +72,44 @@ namespace PinWin
             }
         }
 
-        private void ContextMenu_Opening(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            ContextMenu.Items.Clear();
-            foreach (var kv in WinApi.GetWindowHandles())
-            {
-                bool topmost = WinApi.GetWindowTopmost(kv.Key);
-                string truncated = kv.Value.Substring(0, Math.Min(kv.Value.Length, Settings.Default.TitleLengthLimit));
-                ContextMenu.Items.Add(new ToolStripMenuItem(truncated, null, 
-                    (o, args) => WinApi.SetWindowTopmost(kv.Key, !topmost))
-                {
-                    Checked = topmost,
-                    ToolTipText = kv.Value
-                });
+		private void ContextMenu_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			ContextMenu.Items.Clear();
 
-            }
-            ContextMenu.Items.Add(new ToolStripSeparator());
-            ContextMenu.Items.Add("Select Window From Screen", Resources.TargetIcon, onSelectWindowClicked);
-            ContextMenu.Items.Add("Unpin All Windows", Resources.DeleteIcon, onUnpinAllClicked);
-            ContextMenu.Items.Add("Options", Resources.OptionsIcon, onOptionsClicked);
-            ContextMenu.Items.Add("About", Resources.AboutIcon, onAboutClicked);
-            ContextMenu.Items.Add("Exit", null, onExitClicked);
+			var windowsItems = new List<ToolStripMenuItem>();
+			foreach (var kv in WinApi.GetWindowHandles())
+			{
+				bool topmost = WinApi.GetWindowTopmost(kv.Key);
+				string truncated = kv.Value.Substring(0, Math.Min(kv.Value.Length, Settings.Default.TitleLengthLimit));
+				windowsItems.Add(new ToolStripMenuItem(truncated, null,
+					(o, args) => WinApi.SetWindowTopmost(kv.Key, !topmost))
+				{
+					Checked = topmost,
+					ToolTipText = kv.Value
+				});
+			};
+
+			var generalItems = new List<ToolStripMenuItem>()
+			{
+				new ToolStripMenuItem("Select Window From Screen", Resources.TargetIcon, onSelectWindowClicked),
+				new ToolStripMenuItem("Unpin All Windows", Resources.DeleteIcon, onUnpinAllClicked),
+				new ToolStripMenuItem("Options", Resources.OptionsIcon, onOptionsClicked),
+				new ToolStripMenuItem("About", Resources.AboutIcon, onAboutClicked),
+				new ToolStripMenuItem("Exit", null, onExitClicked),
+			};
+
+			if (Settings.Default.WindowsListAtEnd)
+			{
+				ContextMenu.Items.AddRange(generalItems.ToArray());
+				ContextMenu.Items.Add(new ToolStripSeparator());
+				ContextMenu.Items.AddRange(windowsItems.ToArray());
+			} else
+			{
+				ContextMenu.Items.AddRange(windowsItems.ToArray());
+				ContextMenu.Items.Add(new ToolStripSeparator());
+				ContextMenu.Items.AddRange(generalItems.ToArray());
+			}
+
             e.Cancel = false;
         }
 
