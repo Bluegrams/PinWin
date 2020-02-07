@@ -40,6 +40,7 @@
             this.chkTruncateTitle = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chkUpdates = new System.Windows.Forms.CheckBox();
+            this.chkWindowsAtEnd = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.panHotKey.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numLimit)).BeginInit();
@@ -49,7 +50,7 @@
             // butCancel
             // 
             this.butCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.butCancel.Location = new System.Drawing.Point(287, 170);
+            this.butCancel.Location = new System.Drawing.Point(287, 202);
             this.butCancel.Name = "butCancel";
             this.butCancel.Size = new System.Drawing.Size(85, 25);
             this.butCancel.TabIndex = 2;
@@ -58,7 +59,7 @@
             // 
             // butSubmit
             // 
-            this.butSubmit.Location = new System.Drawing.Point(196, 170);
+            this.butSubmit.Location = new System.Drawing.Point(196, 202);
             this.butSubmit.Name = "butSubmit";
             this.butSubmit.Size = new System.Drawing.Size(85, 25);
             this.butSubmit.TabIndex = 1;
@@ -71,10 +72,11 @@
             this.groupBox1.Controls.Add(this.panHotKey);
             this.groupBox1.Controls.Add(this.chkHotKey);
             this.groupBox1.Controls.Add(this.numLimit);
+            this.groupBox1.Controls.Add(this.chkWindowsAtEnd);
             this.groupBox1.Controls.Add(this.chkTruncateTitle);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(360, 76);
+            this.groupBox1.Size = new System.Drawing.Size(360, 109);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "General";
@@ -154,7 +156,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.chkUpdates);
-            this.groupBox2.Location = new System.Drawing.Point(12, 94);
+            this.groupBox2.Location = new System.Drawing.Point(12, 126);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(360, 70);
             this.groupBox2.TabIndex = 4;
@@ -171,13 +173,24 @@
             this.chkUpdates.Text = "Always check for updates at startup";
             this.chkUpdates.UseVisualStyleBackColor = true;
             // 
+            // chkWindowsAtEnd
+            // 
+            this.chkWindowsAtEnd.AutoSize = true;
+            this.chkWindowsAtEnd.Location = new System.Drawing.Point(6, 80);
+            this.chkWindowsAtEnd.Name = "chkWindowsAtEnd";
+            this.chkWindowsAtEnd.Size = new System.Drawing.Size(163, 17);
+            this.chkWindowsAtEnd.TabIndex = 0;
+            this.chkWindowsAtEnd.Text = "Show windows list at the end";
+            this.chkWindowsAtEnd.UseVisualStyleBackColor = true;
+            this.chkWindowsAtEnd.CheckedChanged += new System.EventHandler(this.chkTruncateTitle_CheckedChanged);
+            // 
             // OptionsForm
             // 
             this.AcceptButton = this.butSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.butCancel;
-            this.ClientSize = new System.Drawing.Size(384, 206);
+            this.ClientSize = new System.Drawing.Size(384, 239);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.butSubmit);
@@ -212,5 +225,6 @@
         private System.Windows.Forms.CheckBox chkHotKey;
         private System.Windows.Forms.NumericUpDown numLimit;
         private System.Windows.Forms.CheckBox chkUpdates;
+        private System.Windows.Forms.CheckBox chkWindowsAtEnd;
     }
 }

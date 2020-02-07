@@ -18,6 +18,7 @@ namespace PinWin
             // --- General section ---
             chkTruncateTitle.Checked = Settings.Default.TitleLengthLimit < int.MaxValue;
             numLimit.Value = Settings.Default.TitleLengthLimit;
+            chkWindowsAtEnd.Checked = Settings.Default.WindowsListAtEnd;
             chkHotKey.Checked = main.HotKey != null;
             panHotKey.Enabled = chkHotKey.Checked;
             txtHotKey.Text = selectedKeys.ToString();
@@ -57,6 +58,7 @@ namespace PinWin
             if (chkTruncateTitle.Checked)
                 Settings.Default.TitleLengthLimit = (int)numLimit.Value;
             else Settings.Default.TitleLengthLimit = int.MaxValue;
+            Settings.Default.WindowsListAtEnd = chkWindowsAtEnd.Checked;
             // --- Application section
             Settings.Default.AlwaysCheckForUpdates = chkUpdates.Checked;
             this.Close();
