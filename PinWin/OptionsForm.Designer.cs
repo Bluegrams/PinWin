@@ -37,10 +37,10 @@
             this.txtHotKey = new System.Windows.Forms.TextBox();
             this.chkHotKey = new System.Windows.Forms.CheckBox();
             this.numLimit = new System.Windows.Forms.NumericUpDown();
+            this.chkWindowsAtEnd = new System.Windows.Forms.CheckBox();
             this.chkTruncateTitle = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chkUpdates = new System.Windows.Forms.CheckBox();
-            this.chkWindowsAtEnd = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.panHotKey.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numLimit)).BeginInit();
@@ -142,6 +142,17 @@
             0,
             0});
             // 
+            // chkWindowsAtEnd
+            // 
+            this.chkWindowsAtEnd.AutoSize = true;
+            this.chkWindowsAtEnd.Location = new System.Drawing.Point(6, 80);
+            this.chkWindowsAtEnd.Name = "chkWindowsAtEnd";
+            this.chkWindowsAtEnd.Size = new System.Drawing.Size(163, 17);
+            this.chkWindowsAtEnd.TabIndex = 0;
+            this.chkWindowsAtEnd.Text = "Show windows list at the end";
+            this.chkWindowsAtEnd.UseVisualStyleBackColor = true;
+            this.chkWindowsAtEnd.CheckedChanged += new System.EventHandler(this.chkTruncateTitle_CheckedChanged);
+            // 
             // chkTruncateTitle
             // 
             this.chkTruncateTitle.AutoSize = true;
@@ -173,17 +184,6 @@
             this.chkUpdates.Text = "Always check for updates at startup";
             this.chkUpdates.UseVisualStyleBackColor = true;
             // 
-            // chkWindowsAtEnd
-            // 
-            this.chkWindowsAtEnd.AutoSize = true;
-            this.chkWindowsAtEnd.Location = new System.Drawing.Point(6, 80);
-            this.chkWindowsAtEnd.Name = "chkWindowsAtEnd";
-            this.chkWindowsAtEnd.Size = new System.Drawing.Size(163, 17);
-            this.chkWindowsAtEnd.TabIndex = 0;
-            this.chkWindowsAtEnd.Text = "Show windows list at the end";
-            this.chkWindowsAtEnd.UseVisualStyleBackColor = true;
-            this.chkWindowsAtEnd.CheckedChanged += new System.EventHandler(this.chkTruncateTitle_CheckedChanged);
-            // 
             // OptionsForm
             // 
             this.AcceptButton = this.butSubmit;
@@ -200,6 +200,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "OptionsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PinWin - Options";
             this.TopMost = true;
             this.groupBox1.ResumeLayout(false);

@@ -27,7 +27,7 @@ namespace PinWin
                 SetHotKey((KeyCombination)keys);
             }
             Application.ApplicationExit += Application_ApplicationExit;
-            updateChecker = new WinFormsUpdateChecker(Program.UpdateCheckUrl);
+            updateChecker = new WinFormsUpdateChecker(Program.UPDATE_URL, identifier: Program.UPDATE_IDENTIFIER);
             if (Settings.Default.AlwaysCheckForUpdates)
                 updateChecker.CheckForUpdates();
         }
@@ -91,7 +91,8 @@ namespace PinWin
 
             var generalItems = new List<ToolStripMenuItem>()
             {
-                new ToolStripMenuItem("Select Window From Screen", Resources.TargetIcon, onSelectWindowClicked),
+                new ToolStripMenuItem("Select Window From Screen", Resources.TargetIcon, onSelectWindowClicked)
+                { ShortcutKeyDisplayString = HotKey.KeyCombination.ToString() },
                 new ToolStripMenuItem("Unpin All Windows", Resources.DeleteIcon, onUnpinAllClicked),
                 new ToolStripMenuItem("Options", Resources.OptionsIcon, onOptionsClicked),
                 new ToolStripMenuItem("About", Resources.AboutIcon, onAboutClicked),
@@ -133,7 +134,7 @@ namespace PinWin
         private void onAboutClicked(object sender, EventArgs e)
         {
             var aboutForm = new AboutForm(Resources.PinWinIconBlack.ToBitmap());
-            aboutForm.HighlightColor = Color.Black;
+            aboutForm.AccentColor = Color.Black;
             aboutForm.UpdateChecker = updateChecker;
             aboutForm.StartPosition = FormStartPosition.CenterScreen;
             aboutForm.ShowDialog();

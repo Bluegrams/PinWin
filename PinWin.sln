@@ -9,6 +9,7 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PinWinSetup", "PinWinSetup\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{060ED345-F2C1-408B-B1A7-37CFCC2A168B}"
 	ProjectSection(SolutionItems) = preProject
+		Changelog.md = Changelog.md
 		LICENSE.txt = LICENSE.txt
 		README.md = README.md
 	EndProjectSection
@@ -16,18 +17,23 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
-		Portable|Any CPU = Portable|Any CPU
+		Publish-Install|Any CPU = Publish-Install|Any CPU
+		Publish-Portable|Any CPU = Publish-Portable|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7E06BA38-B308-43E9-B1A6-7851E7A8CBF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7E06BA38-B308-43E9-B1A6-7851E7A8CBF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7E06BA38-B308-43E9-B1A6-7851E7A8CBF2}.Portable|Any CPU.ActiveCfg = Portable|Any CPU
-		{7E06BA38-B308-43E9-B1A6-7851E7A8CBF2}.Portable|Any CPU.Build.0 = Portable|Any CPU
+		{7E06BA38-B308-43E9-B1A6-7851E7A8CBF2}.Publish-Install|Any CPU.ActiveCfg = Release|Any CPU
+		{7E06BA38-B308-43E9-B1A6-7851E7A8CBF2}.Publish-Install|Any CPU.Build.0 = Release|Any CPU
+		{7E06BA38-B308-43E9-B1A6-7851E7A8CBF2}.Publish-Portable|Any CPU.ActiveCfg = Portable|Any CPU
+		{7E06BA38-B308-43E9-B1A6-7851E7A8CBF2}.Publish-Portable|Any CPU.Build.0 = Portable|Any CPU
 		{7E06BA38-B308-43E9-B1A6-7851E7A8CBF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E06BA38-B308-43E9-B1A6-7851E7A8CBF2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{98763980-C751-4C73-829F-F4E08AC9BCD2}.Debug|Any CPU.ActiveCfg = Debug
-		{98763980-C751-4C73-829F-F4E08AC9BCD2}.Portable|Any CPU.ActiveCfg = Portable
+		{98763980-C751-4C73-829F-F4E08AC9BCD2}.Publish-Install|Any CPU.ActiveCfg = Release
+		{98763980-C751-4C73-829F-F4E08AC9BCD2}.Publish-Install|Any CPU.Build.0 = Release
+		{98763980-C751-4C73-829F-F4E08AC9BCD2}.Publish-Portable|Any CPU.ActiveCfg = Portable
 		{98763980-C751-4C73-829F-F4E08AC9BCD2}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution

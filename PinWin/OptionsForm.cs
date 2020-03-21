@@ -38,13 +38,16 @@ namespace PinWin
 
         private void butHotKey_Click(object sender, EventArgs e)
         {
-            HotKeyInputForm hkForm = new HotKeyInputForm();
-            hkForm.TopMost = this.TopMost;
-            if (hkForm.ShowDialog() == DialogResult.OK)
+            // remove current shortcut during key selection
+            main.SetHotKey(KeyCombination.None);
+            HotKeyInputForm hkForm = new HotKeyInputForm((Keys)selectedKeys);
+            if (hkForm.ShowDialog(this) == DialogResult.OK)
             {
                 selectedKeys = (KeyCombination)hkForm.SelectedKeys;
                 txtHotKey.Text = selectedKeys.ToString();
             }
+            // restores previous shortcut
+            main.SetHotKey(selectedKeys);
         }
 
         private void butSubmit_Click(object sender, EventArgs e)

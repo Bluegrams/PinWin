@@ -7,10 +7,12 @@ namespace PinWin
 {
     static class Program
     {
+        internal const string UPDATE_URL = "https://pinwin.sourceforge.io/update.xml";
+
 #if PORTABLE
-        internal const string UpdateCheckUrl = "https://pinwin.sourcefirge.io/update_portable.xml";
+        internal const string UPDATE_IDENTIFIER = "portable";
 #else
-        internal const string UpdateCheckUrl = "https://pinwin.sourceforge.io/update.xml";
+        internal const string UPDATE_IDENTIFIER = "install";
 #endif
 
         [STAThread]
