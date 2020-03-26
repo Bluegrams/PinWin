@@ -92,7 +92,7 @@ namespace PinWin
             var generalItems = new List<ToolStripMenuItem>()
             {
                 new ToolStripMenuItem("Select Window From Screen", Resources.TargetIcon, onSelectWindowClicked)
-                { ShortcutKeyDisplayString = HotKey.KeyCombination.ToString() },
+                { ShortcutKeyDisplayString = HotKey?.KeyCombination.ToString() },
                 new ToolStripMenuItem("Unpin All Windows", Resources.DeleteIcon, onUnpinAllClicked),
                 new ToolStripMenuItem("Options", Resources.OptionsIcon, onOptionsClicked),
                 new ToolStripMenuItem("About", Resources.AboutIcon, onAboutClicked),

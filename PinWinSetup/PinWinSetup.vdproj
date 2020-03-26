@@ -251,7 +251,7 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
-            "Exclude" = "11:FALSE"
+            "Exclude" = "11:TRUE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
@@ -279,7 +279,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:AppHelpers.WinForms, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:AppHelpers.WinForms, Version=0.1.0.5, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_602B7039A203538F2464F2ADE9C06703"
@@ -486,15 +486,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:PinWin"
-        "ProductCode" = "8:{27ED9E9E-976E-4525-8A96-9459A9851BA6}"
-        "PackageCode" = "8:{FA061A14-30A7-45ED-8F16-EB9617BBEB9F}"
+        "ProductCode" = "8:{B6CE4DA8-8197-4D53-805C-4030C4D6201A}"
+        "PackageCode" = "8:{9353D6B4-C29F-488B-8505-FAF8B675B940}"
         "UpgradeCode" = "8:{35D43993-E856-4AC6-9D5D-C13D296B8AA4}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:0.2.0"
+        "ProductVersion" = "8:0.2.1"
         "Manufacturer" = "8:Bluegrams"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://sourceforge.net/projects/pinwin/support"

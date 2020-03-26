@@ -18,11 +18,18 @@ namespace PinWin
         [STAThread]
         static void Main()
         {
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             if (AppInfo.IsPortable.GetValueOrDefault())
                 PortableSettingsProvider.ApplyProvider(Settings.Default);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainApplicationContext());
+        }
+
+        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            Logger.Default.Log("An unhandled exception caused the application to terminate unexpectedly.",
+                (Exception)e.ExceptionObject);
         }
     }
 }
