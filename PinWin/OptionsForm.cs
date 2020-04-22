@@ -17,7 +17,11 @@ namespace PinWin
             InitializeComponent();
             // --- General section ---
             chkTruncateTitle.Checked = Settings.Default.TitleLengthLimit < int.MaxValue;
-            numLimit.Value = Settings.Default.TitleLengthLimit;
+            numLimit.Enabled = chkTruncateTitle.Checked;
+            if (chkTruncateTitle.Checked)
+            {
+                numLimit.Value = Settings.Default.TitleLengthLimit;
+            }
             chkWindowsAtEnd.Checked = Settings.Default.WindowsListAtEnd;
             chkHotKey.Checked = main.HotKey != null;
             panHotKey.Enabled = chkHotKey.Checked;
