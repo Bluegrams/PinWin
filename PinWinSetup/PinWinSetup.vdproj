@@ -76,13 +76,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_82335E35B24F7E3543CECFF64CBC114A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_602B7039A203538F2464F2ADE9C06703"
+        "OwnerKey" = "8:_3397245BE97A745A9C35EC22D0F64972"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -94,7 +88,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3397245BE97A745A9C35EC22D0F64972"
+        "OwnerKey" = "8:_602B7039A203538F2464F2ADE9C06703"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_82335E35B24F7E3543CECFF64CBC114A"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -231,11 +231,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_3397245BE97A745A9C35EC22D0F64972"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -282,11 +277,6 @@
             "AssemblyAsmDisplayName" = "8:AppHelpers.WinForms, Version=0.1.0.5, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_602B7039A203538F2464F2ADE9C06703"
-                    {
-                    "Name" = "8:AppHelpers.WinForms.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:AppHelpers.WinForms.dll"
             "TargetName" = "8:"
@@ -313,11 +303,6 @@
             "AssemblyAsmDisplayName" = "8:Bluegrams.Windows.Tools, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_82335E35B24F7E3543CECFF64CBC114A"
-                    {
-                    "Name" = "8:Bluegrams.Windows.Tools.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Bluegrams.Windows.Tools.dll"
             "TargetName" = "8:"
@@ -384,11 +369,6 @@
             "AssemblyAsmDisplayName" = "8:PortableSettingsProvider, Version=0.2.3.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_D9E86B3250E017B4CC3B4AB79462DCDD"
-                    {
-                    "Name" = "8:PortableSettingsProvider.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:PortableSettingsProvider.dll"
             "TargetName" = "8:"
@@ -486,15 +466,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:PinWin"
-        "ProductCode" = "8:{B6CE4DA8-8197-4D53-805C-4030C4D6201A}"
-        "PackageCode" = "8:{9353D6B4-C29F-488B-8505-FAF8B675B940}"
+        "ProductCode" = "8:{CD8DF29D-9184-4D6E-A0D8-0DFA2020DC77}"
+        "PackageCode" = "8:{435FDB52-6B0F-4331-A62D-BB0360CB2513}"
         "UpgradeCode" = "8:{35D43993-E856-4AC6-9D5D-C13D296B8AA4}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:0.2.1"
+        "ProductVersion" = "8:0.2.2"
         "Manufacturer" = "8:Bluegrams"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://sourceforge.net/projects/pinwin/support"
