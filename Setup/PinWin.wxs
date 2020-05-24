@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Version="0.2.2" Codepage="1252" Language="1033" Manufacturer="Bluegrams" Name="PinWin" UpgradeCode="{35D43993-E856-4AC6-9D5D-C13D296B8AA4}">
+    <Package Compressed="yes" InstallerVersion="200" Languages="1033" Manufacturer="Bluegrams" InstallScope="perMachine"/>
+    <MajorUpgrade DowngradeErrorMessage="Unable to install because a newer version of this product is already installed."
+                  AllowSameVersionUpgrades="no"/>
+    <!-- Check .NET -->
+    <PropertyRef Id='WIX_IS_NETFRAMEWORK_462_OR_LATER_INSTALLED'/>
+    <Condition Message='This setup requires the .NET Framework 4.6.2 (or greater) to be installed.'>
+      <![CDATA[Installed OR WIX_IS_NETFRAMEWORK_462_OR_LATER_INSTALLED]]>
+    </Condition>
+    <!-- Files -->
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="Bluegrams" Name="Bluegrams">
+          <Directory Id="INSTALLDIR" Name="PinWin">
+            <Component Id="PinWin.exe" Guid="{E6507BE1-52F2-8210-A8E4-B7EE1950FDCA}">
+              <File Id="PinWin.exe" Name="PinWin.exe" Source="$(var.PinWin.TargetDir)PinWin.exe" KeyPath="yes">
+                <Shortcut Id="StartupFolderIcon" Directory="StartupFolder" Name="PinWin" Icon="pinwin.ico" IconIndex="0" WorkingDirectory="TARGETDIR" Advertise="yes" />
+                <Shortcut Id="ProgramFolderIcon" Directory="ProgramMenuBluegrams" Name="PinWin" Icon="pinwin.ico" IconIndex="0" WorkingDirectory="TARGETDIR" Advertise="yes" />
+              </File>
+            </Component>
+            <Component Id="PinWin.exe.config" Guid="{917BB409-258F-345D-8494-8FAE5952D233}">
+              <File Id="PinWin.exe.config" Name="PinWin.exe.config" Source="$(var.PinWin.TargetDir)PinWin.exe.config" KeyPath="yes"/>
+            </Component>
+            <Component Id="AppHelpers.WinForms.dll" Guid="{CD748B42-2200-47D5-C2D9-3616E9747332}">
+              <File Id="AppHelpers.WinForms.dll" Name="AppHelpers.WinForms.dll" Source="$(var.PinWin.TargetDir)AppHelpers.WinForms.dll" KeyPath="yes"/>
+            </Component>
+            <Component Id="Bluegrams.Windows.Tools.dll" Guid="{AB80CBA9-D86D-E435-491E-DBD9EE583C55}">
+              <File Id="Bluegrams.Windows.Tools.dll" Name="Bluegrams.Windows.Tools.dll" Source="$(var.PinWin.TargetDir)Bluegrams.Windows.Tools.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="PortableSettingsProvider.dll" Guid="{28EF7F9F-9D47-0AC8-0872-4E1CD1D77003}">
+              <File Id="PortableSettingsProvider.dll" Name="PortableSettingsProvider.dll" Source="$(var.PinWin.TargetDir)PortableSettingsProvider.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="License" Guid="{85D43FDF-8620-D6CE-865C-923764438758}">
+              <File Id="LICENSE.txt" Name="LICENSE.txt" KeyPath="yes" Source="../LICENSE.txt" />
+            </Component>
+            <Component Id="Readme" Guid="{D3361042-FC05-B76D-6538-177FEC7E89ED}">
+              <File Id="README.md" Name="README.md" KeyPath="yes" Source="../README.md" />
+            </Component>
+          </Directory>
+        </Directory>
+      </Directory>
+      <Component Id="RemoveProgramMenuBluegrams" Guid="{CD8DF29D-9184-4D6E-A0D8-0DFA2020DC77}" KeyPath="yes">
+        <RemoveFolder Id="RemoveProgramMenuBluegrams" Directory="ProgramMenuBluegrams" On="uninstall" />
+      </Component>
+      <Directory Id="StartupFolder" />
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ProgramMenuBluegrams" Name="Bluegrams"/>
+      </Directory>
+    </Directory>
+    <Feature Id="DefaultFeature" ConfigurableDirectory="TARGETDIR" Level="1">
+      <ComponentRef Id="PinWin.exe"/>
+      <ComponentRef Id="PinWin.exe.config"/>
+      <ComponentRef Id="AppHelpers.WinForms.dll"/>
+      <ComponentRef Id="Bluegrams.Windows.Tools.dll"/>
+      <ComponentRef Id="PortableSettingsProvider.dll"/>
+      <ComponentRef Id="License"/>
+      <ComponentRef Id="Readme"/>
+      <ComponentRef Id="RemoveProgramMenuBluegrams" />
+    </Feature>
+    <Icon Id="pinwin.ico" SourceFile="pinwin.ico" />
+    <Media Id="1" Cabinet="Cab1.cab" EmbedCab="yes" />
+    <Property Id="ARPHELPLINK" Value="https://sf.net/p/pinwin/support" />
+    <Property Id="ARPCONTACT" Value="Bluegrams" />
+    <!-- UI -->
+    <UI Id="WixUI_Minimal">
+      <TextStyle Id="WixUI_Font_Normal" FaceName="Tahoma" Size="8" />
+      <TextStyle Id="WixUI_Font_Bigger" FaceName="Tahoma" Size="12" />
+      <TextStyle Id="WixUI_Font_Title" FaceName="Tahoma" Size="9" Bold="yes" />
+
+      <Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
+      <Property Id="WixUI_Mode" Value="Minimal" />
+
+      <DialogRef Id="ErrorDlg" />
+      <DialogRef Id="FatalError" />
+      <DialogRef Id="FilesInUse" />
+      <DialogRef Id="MsiRMFilesInUse" />
+      <DialogRef Id="PrepareDlg" />
+      <DialogRef Id="ProgressDlg" />
+      <DialogRef Id="ResumeDlg" />
+      <DialogRef Id="UserExit" />
+      <DialogRef Id="WelcomeDlg" />
+
+      <!-- a dirty hack to remove previous versions with different install scopes-->
+      <!-- credits: https://stackoverflow.com/a/35064434/9145461 -->
+      <!-- temporarily switch to per-user install scope-->
+      <Publish Dialog="WelcomeDlg" Control="Next" Property="ALLUSERS" Value="{}">1</Publish>
+      <!-- find related products that have been installed per-user -->
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="DoAction" Value="FindRelatedProducts">1</Publish>
+      <!-- switch back to per-machine install scope-->
+      <Publish Dialog="WelcomeDlg" Control="Next" Property="ALLUSERS" Value="1">1</Publish>
+      <!-- end hack -->
+
+      <Publish Dialog="ExitDialog" Control="Finish" Event="EndDialog" Value="Return" Order="999">1</Publish>
+
+      <Publish Dialog="MaintenanceWelcomeDlg" Control="Next" Event="NewDialog" Value="MaintenanceTypeDlg">1</Publish>
+
+      <Publish Dialog="MaintenanceTypeDlg" Control="RepairButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
+      <Publish Dialog="MaintenanceTypeDlg" Control="RemoveButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
+      <Publish Dialog="MaintenanceTypeDlg" Control="Back" Event="NewDialog" Value="MaintenanceWelcomeDlg">1</Publish>
+
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
+
+      <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="MaintenanceTypeDlg" Order="4">WixUI_InstallMode = "Repair" OR WixUI_InstallMode = "Remove"</Publish>
+      <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg" Order="2">1</Publish>
+
+
+      <InstallUISequence>
+        <Show Dialog="WelcomeDlg" Before="ProgressDlg">1</Show>
+      </InstallUISequence>
+
+      <Property Id="ARPNOMODIFY" Value="1" />
+    </UI>
+    <UIRef Id="WixUI_Common" />
+   
+    <!-- Custom Actions -->
+    <CustomAction Id="KillApp" Directory="INSTALLDIR" Return="ignore" ExeCommand="&quot;[SystemFolder]taskkill.exe&quot; /F /IM &quot;PinWin.exe&quot;" />
+    <CustomAction Id="LaunchFile" FileKey="PinWin.exe" ExeCommand="" Return="asyncNoWait" />
+    <InstallExecuteSequence>
+      <Custom Action="KillApp" Before="InstallValidate" />
+      <Custom Action="LaunchFile" After="InstallFinalize">NOT Installed</Custom>
+    </InstallExecuteSequence>
+  </Product>
+</Wix>
