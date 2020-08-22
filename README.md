@@ -20,11 +20,22 @@ PinWin is a minimal Windows system tray application that allows you to pin any w
 
 - Runs quietly in background and does not need installation
 
-## Setup and Usage
+## Setup
 
 #### Requirements
 
 PinWin requires Windows 7 or newer and .NET Framework 4.6.2 or higher.
+
+#### Installation
+
+- Download the [latest release from SourceForge](https://sourceforge.net/projects/pinwin/files/)
+
+or
+
+- Install from [Chocolatey](https://chocolatey.org):
+```
+choco install pinwin
+```
 
 ## Feedback and Support
 

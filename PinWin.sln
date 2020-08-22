@@ -14,6 +14,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Setup", "Setup\Setup.wixproj", "{DD87CEB2-5635-488B-BD9C-52CBD93A608C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "choco", "choco", "{E667BED5-F79A-4305-B701-AED24AB5EADC}"
+	ProjectSection(SolutionItems) = preProject
+		choco\pinwin.nuspec = choco\pinwin.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{D6DF54E0-79AF-462A-A802-4464118076CA}"
+	ProjectSection(SolutionItems) = preProject
+		choco\tools\chocolateyinstall.ps1 = choco\tools\chocolateyinstall.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{2FAC4F97-AEF9-471E-9B57-579290BDE553}"
+	ProjectSection(SolutionItems) = preProject
+		img\icon.png = img\icon.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +53,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E667BED5-F79A-4305-B701-AED24AB5EADC} = {060ED345-F2C1-408B-B1A7-37CFCC2A168B}
+		{D6DF54E0-79AF-462A-A802-4464118076CA} = {E667BED5-F79A-4305-B701-AED24AB5EADC}
+		{2FAC4F97-AEF9-471E-9B57-579290BDE553} = {060ED345-F2C1-408B-B1A7-37CFCC2A168B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {23B94BA9-5C80-4343-ADD9-343CB9F9804D}

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <!-- == PACKAGE SPECIFIC SECTION == -->
+    <id>pinwin</id>
+    <version>0.2.2</version>
+    <owners>alxnull</owners>
+    <!-- ============================== -->
+
+    <!-- == SOFTWARE SPECIFIC SECTION == -->
+    <title>PinWin</title>
+    <authors>alxnull</authors>
+    <projectUrl>https://sf.net/p/pinwin</projectUrl>
+    <iconUrl>https://gitcdn.xyz/repo/Bluegrams/PinWin/master/img/icon.png</iconUrl>
+    <copyright>© 2020 Bluegrams</copyright>
+    <licenseUrl>https://github.com/Bluegrams/PinWin/blob/master/LICENSE.txt</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/Bluegrams/PinWin</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/Bluegrams/PinWin/issues</bugTrackerUrl>
+    <tags>pinwin windows always-on-top ontop pin desktop</tags>
+    <summary>Pin any window to be always on top of the screen.</summary>
+    <description>PinWin is a minimal Windows system tray application that allows you to pin any windows to the top of the screen with one click.</description>
+    <releaseNotes>https://github.com/Bluegrams/PinWin/blob/master/Changelog.md</releaseNotes>
+    <!-- =============================== -->      
+
+    <dependencies>
+      <dependency id="dotnetfx" version="4.6.2.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
